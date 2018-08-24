@@ -5,6 +5,7 @@ import Debug from 'debug';
 import http from 'http';
 import { hri } from 'human-readable-ids';
 import Router from 'koa-router';
+import auth from 'koa-basic-auth';
 
 import ClientManager from './lib/ClientManager';
 
@@ -50,6 +51,11 @@ export default function(opt) {
         };
     });
 
+    if(opt.user && opt.password) {
+        debug('basic-auth is enabled');
+        app.use(auth({ name: user, pass: password }))
+    }
+    
     app.use(router.routes());
     app.use(router.allowedMethods());
 
