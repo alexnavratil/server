@@ -48,6 +48,8 @@ const server = CreateServer({
     max_tcp_sockets: argv['max-sockets'],
     secure: argv.secure,
     domain: argv.domain,
+    user: argv.user,
+    password: argv.password
 });
 
 server.listen(argv.port, argv.address, () => {
