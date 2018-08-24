@@ -53,9 +53,9 @@ export default function(opt) {
 
     if(opt.user && opt.password) {
         debug('basic-auth is enabled');
-        app.use(auth({ name: user, pass: password }))
+        app.use(auth({ name: opt.user, pass: opt.password }))
     }
-    
+
     app.use(router.routes());
     app.use(router.allowedMethods());
 
