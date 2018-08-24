@@ -31,6 +31,12 @@ const argv = optimist
         default: 10,
         describe: 'maximum number of tcp sockets each client is allowed to establish at one time (the tunnels)'
     })
+    .options('user', {
+        describe: 'Username for securing this endpoint. New client have to use the same username and password configure. Note that you also have to set a password to enable authentication for new clients.',
+    })
+    .options('password', {
+        describe: 'Password for securing this endpoint. New client have to use the same username and password configure. Note that you also have to set a username to enable authentication for new clients.',
+    })
     .argv;
 
 if (argv.help) {
